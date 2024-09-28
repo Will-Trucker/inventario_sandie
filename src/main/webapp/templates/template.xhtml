@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+    <title>Librería Sandie</title>
+    <h:outputStylesheet name="css/bootstrap.min.css" />
+    <link rel="icon" type="image/png" href="#{resource['img/sandie.png']}" />
+    <h:outputLink value="img/user1_dwf.jpg" />
+</h:head>
+
+<h:body>
+    <b:navBar inverse="true" class="navbar-expand-lg" style="border-radius: none !important;">
+        <b:navbarLinks style-class="navbar_template">
+            <b:navLink outcome="index" style="margin-top: 3px; margin-left: 0; padding: 0;">
+                <div class="logo" style="border-right: 1px solid #5b6370; padding-right: 25px;">
+                    <h:graphicImage value="#{resource['img/sandie.png']}" alt="Logo" style="height: 40px; margin-right: 1px;" />
+                    SANDIE
+                </div>
+            </b:navLink>
+            <b:navLink value="Gestionar Empleados" outcome="table_empleados"/>
+            <b:navLink value="Gestionar Productos" outcome="table_productos"/>
+            <b:navLink value="Gestionar Movimientos" outcome="table_movimientos"/>
+            <b:navLink value="Gestionar Proveedores" outcome="table_proveedores"/>
+        </b:navbarLinks>
+        <b:navbarLinks class="navbar-right">
+            <h:graphicImage value="#{resource['img/user1_dwf.jpg']}" alt="User Photo" style="height: 40px; margin: 5px 0;" />
+            <b:dropMenu value="Nicolas JACKson" iconAwesome="none" styleClass="no-bootstrap-caret" style="padding-right: 20px;">
+                <b:navLink value="Editar perfil" href="#"></b:navLink>
+                <b:navLink value="Cerrar sesión" href="#"></b:navLink>
+            </b:dropMenu>
+        </b:navbarLinks>
+    </b:navBar>
+    <div class="container">
+        <ui:insert name="content">Content</ui:insert>
+    </div>
+</h:body>
+</html>

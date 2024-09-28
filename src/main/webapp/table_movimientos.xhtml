@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<ui:composition
+        xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+        xmlns:h="http://xmlns.jcp.org/jsf/html"
+        xmlns:b="http://bootsfaces.net/ui"
+        xmlns:f="http://java.sun.com/jsf/core"
+        template="templates/template.xhtml">
+    <ui:define name="content">
+        <h:form>
+            <div class="row" style="border-bottom: 1px solid #bcbfc4; margin-top: 2px; padding-bottom: 15px; margin-bottom: 25px;">
+                <b:commandButton value="Regresar" action="index" styleClass="btn btn-secondary" style="width: 100px; margin-right: 10px;"/>
+            </div>
+        </h:form>
+        <h:outputText />
+        <h2 class="mb-4">Gestionar movimientos</h2>
+        <h:form>
+            <b:dataTable value="value" var="var"
+                         id="id"
+                         excel="true"
+                         csv="false"
+                         pdf="false"
+                         columnVisibility="true"
+                         copy="true"
+                         print="true"
+                         styleClass="table table-striped table-bordered"
+                         custom-options="dom: 'lfrtiBp',buttons: ['colvis','copy','csv',{extend: 'excelHtml5', exportOptions: {columns: [ 0, 1, 2, 3, 4, 5 ]}},{extend: 'pdfHtml5', exportOptions: {columns: [ 0, 1, 2, 3, 4, 5 ]}},'print']">
+                <b:dataTableColumn value="id" label="ID" />
+                <b:dataTableColumn value="entrada / salida" label="Tipo de Movimiento" />
+                <b:dataTableColumn value="empleado1" label="Empleado Responsable" />
+                <b:dataTableColumn value="prod" label="Producto" />
+                <b:dataTableColumn value="cant" label="Cantidad" />
+                <b:dataTableColumn value="desc" label="Descripción" />
+                <b:dataTableColumn value="date" label="Fecha" order="desc"/>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Acción" />
+                    </f:facet>
+                    <h:form>
+                        <div class="d-grid gap-2 d-md-block">f
+                            <b:commandButton value="Gestionar" action="gestionar_movimiento" styleClass="btn btn-success" style="width: 75px; margin-right: 10px;" />
+                        </div>
+                    </h:form>
+                </h:column>
+            </b:dataTable>
+        </h:form>
+        <b:messages />
+
+    </ui:define>
+</ui:composition>

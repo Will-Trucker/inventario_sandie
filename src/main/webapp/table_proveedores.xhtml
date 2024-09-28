@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<ui:composition
+        xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+        xmlns:h="http://xmlns.jcp.org/jsf/html"
+        xmlns:b="http://bootsfaces.net/ui"
+        xmlns:f="http://java.sun.com/jsf/core"
+        template="templates/template.xhtml">
+    <ui:define name="content">
+        <h:form>
+            <div class="row" style="border-bottom: 1px solid #bcbfc4; margin-top: 2px; padding-bottom: 15px; margin-bottom: 25px;">
+                <b:commandButton value="Regresar" action="index" styleClass="btn btn-secondary" style="width: 100px; margin-right: 10px;"/>
+                <b:commandButton value="Nuevo" action="ingreso_proveedores" styleClass="btn btn-primary" style="width: 70px"/>
+            </div>
+        </h:form>
+        <h:outputText />
+        <h2 class="mb-4">Gestionar proveedores</h2>
+        <h:form>
+            <b:dataTable value="proveedores" var="p"
+                         id="id"
+                         styleClass="table table-striped table-bordered">
+                <b:dataTableColumn value="id" label="ID" order="asc" />
+                <b:dataTableColumn value="p.nombre" label="Nombre" />
+                <b:dataTableColumn value="dir" label="Dirección" />
+                <b:dataTableColumn value="phone" label="Teléfono" />
+                <b:dataTableColumn value="email" label="Correo" />
+                <b:dataTableColumn value="name2" label="Nombre de representante" />
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Acción" />
+                    </f:facet>
+                    <h:form>
+                        <div class="d-grid gap-2 d-md-block">
+                            <b:commandButton value="Editar" action="ingreso_proveedores" styleClass="btn btn-warning" style="width: 75px; margin-right: 10px;" />
+                            <b:commandButton value="Eliminar" action="delete_proveedor" styleClass="btn btn-danger" style="width: 75px" />
+                        </div>
+                    </h:form>
+                </h:column>
+            </b:dataTable>
+        </h:form>
+        <b:messages />
+
+    </ui:define>
+</ui:composition>
